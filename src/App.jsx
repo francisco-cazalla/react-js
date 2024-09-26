@@ -1,40 +1,38 @@
 import React, { useState } from "react";
 import { ChakraProvider, useToast } from "@chakra-ui/react";
-import NavBar from "./componentes/navBar";
-import ItemListContainer from "../src/item/item";
-import ItemCount from './itemCount/itemCount';
-import CartWidget from './CartWidget/CartWidget'
+import {ItemDetailContainer, NavBar} from "./componentes";
+import { ItemListContainer} from "./componentes/item";
+import {ItemCount} from './componentes';
+import {CartWidget} from './componentes/CartWidget'
 import MainLayout from "./layouts/MainLayout";
-import Home from "./pages/home";
+import {Home} from "./pages";
+import { MainRouter } from "./router";
+import { useLocation } from "react-router-dom";
+
 
 const App = () => {
   const [cartItems, setCartItems] = useState(0);
   const toast = useToast();
+  
 
-  const handleAdd = (quantity) => {
+    const handleAdd = (quantity) => {
     setCartItems(cartItems + quantity);
-
     toast({
       title: "Item agregado.",
-      description: `Has agregado ${quantity} items al carrito.`,
+      description: `Has agregado ${quantity} item${quantity > 1 ? 's' : ''} al carrito.`,
       status: "success",
       duration: 3000,
       isClosable: true,
       position: "top-right",
     });
   };
+  
 
   return (
-    <ChakraProvider>
-      {/* Pasamos cartItems al NavBar */}
-      <NavBar cartItems={cartItems} />
-      <ItemListContainer greeting="Hola a todos, esta es mi tienda!!" />
-      
-        <Home />
-      
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '1vh', marginTop:'20px' }}>
-        <ItemCount initial={1} stock={5} onAdd={handleAdd} />
-      </div>
+    <ChakraProvider>      
+      <MainLayout>                   
+        <MainRouter />                          
+        </MainLayout>
     </ChakraProvider>
   );
 };

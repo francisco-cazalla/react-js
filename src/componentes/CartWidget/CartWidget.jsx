@@ -2,7 +2,7 @@ import { GiShoppingCart } from "react-icons/gi";
 
 
 
-const CartWidget = ({cartItems}) => {
+export const CartWidget = ({cartItems}) => {
   
   return (
     <div
@@ -17,10 +17,10 @@ const CartWidget = ({cartItems}) => {
     >
        
       <GiShoppingCart size={0} />
+      
       {/* Mostramos el número de items que se pasa como prop */}
       {cartItems}
     </div>
   );
 };
 
-export default CartWidget;
