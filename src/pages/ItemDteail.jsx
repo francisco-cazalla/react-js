@@ -2,7 +2,7 @@
 import React from "react";
 import { useParams } from "react-router";
 
-import { useItemById } from "../hooks";
+import { useItemById } from "../Hooks";
 
 
 import { ItemDetailContainer } from "../componentes";
