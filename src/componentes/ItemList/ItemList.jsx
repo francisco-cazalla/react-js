@@ -20,7 +20,6 @@ export   const ItemList = ({ products }) => {
         {products.map((item) => {
         return (
             <Center py={12} key={item.id}>
-        
     <Box
         role={'group'}
         p={6}
@@ -30,14 +29,12 @@ export   const ItemList = ({ products }) => {
         bg={useColorModeValue('white', 'gray.800')}
         overflow={'hidden'}
         overflowX={'hidden'}
-       
         boxShadow={'2xl'}
         rounded={'lg'}
         pos={'relative'}
         zIndex={0}>
         <Box
         rounded={'lg'}
-       
         mt={-12}
         pos={'relative'}
         height={'330px'}
@@ -52,8 +49,6 @@ export   const ItemList = ({ products }) => {
             backgroundImage: `url(${item.images})`,
             filter: 'blur(15px)',
             zIndex: -1,
-           
-           
         }}
         _groupHover={{
             _after: {
@@ -68,14 +63,14 @@ export   const ItemList = ({ products }) => {
             objectFit={'cover'}
             src={item.thumbnail}
             alt="#"
-           
+        
         />
         </Box>
         <Stack pt={10} align={'center'}>
         <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
             {item.description}
         </Text>
-       
+        
         <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
             {item.title}
         </Heading>

@@ -25,9 +25,6 @@ export const ItemListContainer = ({ greeting }) => {
       {greeting}
       
     </div>
-    
-    
-    
   );
 };
 

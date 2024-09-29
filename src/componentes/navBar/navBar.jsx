@@ -24,9 +24,7 @@ import {
   export const NavBar = () => {
     const { colorMode, toggleColorMode } = useColorMode();
     const { isOpen, onOpen, onClose } = useDisclosure();
-  
     const { categories } = useCategory();
-  
     return (
       <>
         <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
@@ -53,7 +51,6 @@ import {
                 <Button onClick={toggleColorMode}>
                   {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
                 </Button>
-  
                 <Menu>
                   <MenuButton
                     as={Button}

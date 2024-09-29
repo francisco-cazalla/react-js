@@ -13,12 +13,8 @@ export const CartWidget = ({cartItems}) => {
         width: "30%",
         justifyContent: "space-between",
       }}
-
     >
-       
       <GiShoppingCart size={0} />
-      
-      {/* Mostramos el número de items que se pasa como prop */}
       {cartItems}
     </div>
   );

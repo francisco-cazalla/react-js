@@ -103,7 +103,7 @@ export const ItemDetailContainer = ({item}) => {
                 {item.description}
               </Text>
             </VStack>
-            {/* <Box>
+            {/*<Box>
               <Text
                 fontSize={{ base: "16px", lg: "18px" }}
                 color={useColorModeValue("yellow.500", "yellow.300")}
@@ -182,11 +182,18 @@ export const ItemDetailContainer = ({item}) => {
           >
             Add to cart
           </Button>*/}
+          <Text as={"span"} fontWeight={"bold"} fontFamily={"monospace"} fontSize={25}>
+                    rating : {item.rating}  ★
+                  </Text>
+          <Text as={"span"} fontWeight={"bold"} fontFamily={"monospace"} fontSize={25}>
+                    stock : {item.stock}
+                  </Text>{" "}
           <ChakraProvider>
           </ChakraProvider>
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '1vh', marginTop:'20px' }}>
         <ItemCount initial={1} stock={5} onAdd={handleAdd} />
         </div>
+        
         
 
           <Stack direction="row" alignItems="center" justifyContent={"center"}>
