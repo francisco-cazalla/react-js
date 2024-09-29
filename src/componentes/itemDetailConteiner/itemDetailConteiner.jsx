@@ -20,7 +20,7 @@ import {
 
 } from "@chakra-ui/react";
 import { MdLocalShipping } from "react-icons/md";
-import { ItemCount } from "../ItemCount";
+import { ItemCount } from "../itemCount";
 import { useState } from "react";
 import { NavBar } from "../NavBar";
 import { CartWidget } from "../CartWidget";
