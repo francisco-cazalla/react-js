@@ -22,7 +22,7 @@ import {
 import { MdLocalShipping } from "react-icons/md";
 import { ItemCount } from "../itemCount";
 import { useState } from "react";
-import { NavBar } from "../NavBar";
+import { NavBar } from "../navBar";
 import { CartWidget } from "../CartWidget";
 import { useCart } from "../CartContext";
 
