@@ -8,6 +8,7 @@ import MainLayout from "./layouts/MainLayout";
 import {Home} from "./pages";
 import { MainRouter } from "./router";
 import { useLocation } from "react-router-dom";
+import { CartProvider } from "./context";
 
 
 const App = () => {
@@ -31,7 +32,9 @@ const App = () => {
   return (
     <ChakraProvider>      
       <MainLayout>                   
-        <MainRouter />                          
+        <CartProvider>
+        <MainRouter /> 
+        </CartProvider>
         </MainLayout>
     </ChakraProvider>
   );

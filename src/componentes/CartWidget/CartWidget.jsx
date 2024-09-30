@@ -1,9 +1,14 @@
-import { GiShoppingCart } from "react-icons/gi";
+import { useContext } from "react";
+import { CiShoppingCart } from "react-icons/ci";
+import { CartContext } from "../../context";
 
+export const CartWidget = () => {
+  const { cartState } = useContext(CartContext);
 
+  console.log(cartState);
 
-export const CartWidget = ({cartItems}) => {
-  
+  const totalItems = cartState.reduce((acc, item) => acc + item.qtyItem, 0);
+
   return (
     <div
       style={{
@@ -14,8 +19,8 @@ export const CartWidget = ({cartItems}) => {
         justifyContent: "space-between",
       }}
     >
-      <GiShoppingCart size={0} />
-      {cartItems}
+      <CiShoppingCart size={30} />
+      {totalItems}
     </div>
   );
 };

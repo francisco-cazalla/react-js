@@ -21,31 +21,42 @@ import {
 } from "@chakra-ui/react";
 import { MdLocalShipping } from "react-icons/md";
 import { ItemCount } from "../itemCount";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { NavBar } from "../navBar";
 import { CartWidget } from "../CartWidget";
-import { useCart } from "../CartContext";
+import { CartContext } from "../../context";
 
 export const ItemDetailContainer = ({item}) => {
+  const [count , setCount] = useState(0);
+  const {cartState,addItem} = useContext(CartContext)
+  const handleAddItem = () => {
+    const newCount = count +1
+    setCount(newCount);
+    addItem(item, newCount);
+    toast({
+      title: "Item agregado.",
+      description: "has agregegado item/s al carrito",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+      position: "top-right",
+    });
+  }
+
+  const handleRemoveItem = () => {
+    setCount(count - 1);
+    removeItem(item);
+  };
+
   
   const [cartItems, setCartItems] = useState(0);
   
   const toast = useToast();
   
 
-    const handleAdd = (quantity) => {
-      
+    const handleAdd = () => {
     
-    setCartItems(cartItems + quantity);
-
-    toast({
-      title: "Item agregado.",
-      description: `Has agregado ${quantity} items al carrito.`,
-      status: "success",
-      duration: 3000,
-      isClosable: true,
-      position: "top-right",
-    });
+    
   };
 
   return (
@@ -103,85 +114,7 @@ export const ItemDetailContainer = ({item}) => {
                 {item.description}
               </Text>
             </VStack>
-            {/*<Box>
-              <Text
-                fontSize={{ base: "16px", lg: "18px" }}
-                color={useColorModeValue("yellow.500", "yellow.300")}
-                fontWeight={"500"}
-                textTransform={"uppercase"}
-                mb={"4"}
-              >
-                Product Details
-              </Text>
-
-              <List spacing={2}>
-                <ListItem>
-                  <Text as={"span"} fontWeight={"bold"}>
-                    Between lugs:
-                  </Text>{" "}
-                  20 mm
-                </ListItem>
-                <ListItem>
-                  <Text as={"span"} fontWeight={"bold"}>
-                    Bracelet:
-                  </Text>{" "}
-                  leather strap
-                </ListItem>
-                <ListItem>
-                  <Text as={"span"} fontWeight={"bold"}>
-                    Case:
-                  </Text>{" "}
-                  Steel
-                </ListItem>
-                <ListItem>
-                  <Text as={"span"} fontWeight={"bold"}>
-                    Case diameter:
-                  </Text>{" "}
-                  42 mm
-                </ListItem>
-                <ListItem>
-                  <Text as={"span"} fontWeight={"bold"}>
-                    Dial color:
-                  </Text>{" "}
-                  Black
-                </ListItem>
-                <ListItem>
-                  <Text as={"span"} fontWeight={"bold"}>
-                    Crystal:
-                  </Text>{" "}
-                  Domed, scratch‑resistant sapphire crystal with anti‑reflective
-                  treatment inside
-                </ListItem>
-                <ListItem>
-                  <Text as={"span"} fontWeight={"bold"}>
-                    Water resistance:
-                  </Text>{" "}
-                  5 bar (50 metres / 167 feet){" "}
-                </ListItem>
-              </List>
-            </Box> */}
           </Stack>
-
-          {/*<Button
-            rounded={"none"}
-            w={"full"}
-            mt={8}
-            size={"lg"}
-            py={"7"}
-            bg={useColorModeValue("gray.900", "gray.50")}
-            color={useColorModeValue("white", "gray.900")}
-            textTransform={"uppercase"}
-            _hover={{
-              transform: "translateY(2px)",
-              boxShadow: "lg",
-            }}
-            onClick={handleAddToCart}
-            onAdd={handleAddToCart}
-            colorScheme="blue"
-            ml="6"
-          >
-            Add to cart
-          </Button>*/}
           <Text as={"span"} fontWeight={"bold"} fontFamily={"monospace"} fontSize={25}>
                     rating : {item.rating}  ★
                   </Text>
@@ -191,7 +124,8 @@ export const ItemDetailContainer = ({item}) => {
           <ChakraProvider>
           </ChakraProvider>
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '1vh', marginTop:'20px' }}>
-        <ItemCount initial={1} stock={5} onAdd={handleAdd} />
+        <ItemCount initial={1} stock={5} onAdd={handleAddItem}  />
+        <button onClick={handleAdd}></button>
         </div>
         
         
