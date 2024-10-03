@@ -9,10 +9,11 @@ import {
     Stack,
     Img,
   } from '@chakra-ui/react'
-
+import "../../styles/itemList.css"
 
 import { Link } from 'react-router-dom';
 import { BsArrowUpRight } from "react-icons/bs";
+import { color } from 'framer-motion';
 export   const ItemList = ({ products }) => {
     //Se coloca un Flex para que se acomoden los cards uno al lado de otro y el atributo wrap obliga a mis cards a amoldarse al contenedor (no hace overflow en x)
     return (
@@ -21,6 +22,7 @@ export   const ItemList = ({ products }) => {
         return (
             <Center py={12} key={item.id}>
     <Box
+    className='BoxItem BoxItem:hover'
         role={'group'}
         p={6}
         margin={'20px'}
@@ -34,6 +36,7 @@ export   const ItemList = ({ products }) => {
         pos={'relative'}
         zIndex={0}>
         <Box
+        
         rounded={'lg'}
         mt={-12}
         pos={'relative'}
@@ -67,7 +70,7 @@ export   const ItemList = ({ products }) => {
         />
         </Box>
         <Stack pt={10} align={'center'}>
-        <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
+        <Text color={'black.500'} fontSize={'sm'} textTransform={'uppercase'} >
             {item.description}
         </Text>
         

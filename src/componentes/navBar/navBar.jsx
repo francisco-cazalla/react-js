@@ -19,6 +19,7 @@ import {
   import { useCategory } from "../../Hooks";
   import { Link } from "react-router-dom";
   import { FaHome } from "react-icons/fa";
+  import "../../styles/navBar.css"
   
   
   export const NavBar = () => {
@@ -27,14 +28,16 @@ import {
     const { categories } = useCategory();
     return (
       <>
-        <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
+        <Box 
+        bg={useColorModeValue("gray.100", "gray.900")} px={8}>
           <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
             <Box> <Link to="/"> 
             <FaHome size="2rem" /> 
           </Link> </Box>
             
             <Menu>
-              <MenuButton as={Button} cursor="pointer" style={{ marginLeft: 30 }}>
+              <MenuButton className="cate"
+              as={Button} cursor="pointer" style={{ marginLeft: 130 }}>
                 Categorias
               </MenuButton>
               <MenuList height={"300px"} overflowY={"scroll"}>

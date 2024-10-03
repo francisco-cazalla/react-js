@@ -6,6 +6,7 @@ import { Loader } from "../componentes/Loader";
 import { ItemListContainer } from "../componentes/item";
 import { NavBar } from "../componentes";
 import { style } from "framer-motion/client";
+import ".././styles/Home.css"
 
 
  export const Home = () => {
@@ -33,7 +34,9 @@ import { style } from "framer-motion/client";
   ) : (
     <>
     
-    <ItemListContainer greeting="CASA DRODA"/>
+    <text className="tittle">
+      Casa Droda
+    </text>
     <ItemList products={productsData} />
     
     </>
