@@ -9,7 +9,8 @@ import { style } from "framer-motion/client";
 import ".././styles/Home.css"
 
 
- export const Home = () => {
+
+export const Home = () => {
   const [cartItems, setCartItems] = useState(0);
   
   

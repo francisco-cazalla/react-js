@@ -47,6 +47,10 @@ const removeItem = (product) => {
     }
 };
 
+const deleteItem = (product) => {
+    setCartState(cartState.filter((item) => item.id != product.id));
+};
+
 return (
     <CartContext.Provider
     value={{

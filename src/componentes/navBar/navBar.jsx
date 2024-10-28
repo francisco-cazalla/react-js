@@ -13,13 +13,18 @@ import {
     Stack,
     useColorMode,
     Center
+    
+    
   } from "@chakra-ui/react";
+  import { FiMenu } from 'react-icons/fi'
   import { MoonIcon, StarIcon, SunIcon } from "@chakra-ui/icons";
   import { CartWidget } from "../CartWidget";
   import { useCategory } from "../../Hooks";
   import { Link } from "react-router-dom";
   import { FaHome } from "react-icons/fa";
   import "../../styles/navBar.css"
+import { createProductsFirestore } from "../../helpers";
+  
   
   
   export const NavBar = () => {
@@ -31,11 +36,13 @@ import {
         <Box 
         bg={useColorModeValue("gray.100", "gray.900")} px={8}>
           <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-            <Box> <Link to="/"> 
+            <Box>
+              <Link to="/"> 
             <FaHome size="2rem" /> 
           </Link> </Box>
             
             <Menu>
+              
               <MenuButton className="cate"
               as={Button} cursor="pointer" style={{ marginLeft: 130 }}>
                 Categorias
@@ -48,6 +55,7 @@ import {
                 ))}
               </MenuList>
             </Menu>
+            {/*<button onClick={()=>{createProductsFirestore("products")}}>pepooo</button>*/}
             <Flex alignItems={"center"}>
               <CartWidget />
               <Stack direction={"row"} spacing={7}>

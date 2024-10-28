@@ -7,14 +7,14 @@ import {
     Text,
     Flex,
     Stack,
-    Img,
-  } from '@chakra-ui/react'
+    Img,} from '@chakra-ui/react'
 import "../../styles/itemList.css"
 
 import { Link } from 'react-router-dom';
 import { BsArrowUpRight } from "react-icons/bs";
 import { color } from 'framer-motion';
 export   const ItemList = ({ products }) => {
+    //const categories = products.map((product) => console.log(product.category))
     //Se coloca un Flex para que se acomoden los cards uno al lado de otro y el atributo wrap obliga a mis cards a amoldarse al contenedor (no hace overflow en x)
     return (
     <Flex wrap={"wrap"}>
@@ -89,6 +89,7 @@ export   const ItemList = ({ products }) => {
             view more
         </Heading>
             </Link>
+            <BsArrowUpRight />
         </Stack>
         </Stack>
     </Box>
